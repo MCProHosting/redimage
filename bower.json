@@ -1,0 +1,23 @@
+{
+  "name": "redimage",
+  "main": "redimage.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/MCProHosting/redimage",
+  "authors": [
+    "Connor Peet <connor@connorpeet.com>"
+  ],
+  "description": "Redactor plugin for external images",
+  "keywords": [
+    "redactor",
+    "image",
+    "embed"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
