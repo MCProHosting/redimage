@@ -14,11 +14,19 @@
     };
 
     /**
+     * The button HTML to use.
+     * @return {[type]} [description]
+     */
+    plugins.redimage.buttonHtml = function () {
+        return '<i class="fa fa-photo"></i>';
+    };
+
+    /**
      * Returns the template string for the modal popup.
      *
      * @return {String}
      */
-    plugins.redimage.getTemplate = function() {
+    plugins.redimage.getTemplate = function () {
         return String() +
             '<section id="redactor-modal-redimage-insert">' +
                 '<label>Link to Image</label>' +
@@ -32,9 +40,10 @@
      * Initialises the plugin, adding its image to the Redactor toolbar.
      */
     plugins.redimage.init = function () {
-        var button = this.button.add('redimage-btn', 'Link Image');
-        this.button.setAwesome('redimage-btn', 'fa-photo');
-        this.button.addCallback(button, this.redimage.show);
+        var $button = this.button.add('redimage-btn', 'Link Image');
+        $button.html(plugins.redimage.buttonHtml());
+
+        this.button.addCallback($button, this.redimage.show);
     };
 
     /**
@@ -94,4 +103,11 @@
         return str.replace(/[&<>"'"]/g, escapeHtmlChar);
     }
 
-}).call(this);
+    // Expose for module loading
+    if (typeof define === "function" && define.amd) {
+        define(plugins.redimage);
+    } else if (typeof module === "object" && module.exports) {
+        module.exports = plugins.redimage;
+    }
+
+}).call(window);
