@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redimage</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://imperavi.com/js/redactor/redactor.css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="page">
+        <textarea id="content" name="content"></textarea>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../redimage.js"></script>
+    <script src="http://imperavi.com/js/redactor/redactor.js"></script>
+    <script type="text/javascript">
+    $(function()
+    {
+        $('#content').redactor({
+            plugins: ['redimage']
+        });
+    });
+    </script>
+</body>
+</html>
