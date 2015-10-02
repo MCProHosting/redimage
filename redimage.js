@@ -3,21 +3,25 @@
     var plugins = this.RedactorPlugins = this.RedactorPlugins || {};
 
     /**
-     * Redimage plugin. Little hack there - we're attaching properties to the
-     * function itself rather than using an object literal, so that a consumer
-     * of this plugins can modify/override functions as they like.
+     * Redimage plugin. 
      *
-     * @return {[type]} [description]
+     * @return {Object}
      */
     plugins.redimage = function () {
-        return plugins.redimage;
+        return {
+            buttonHtml: buttonHtml,
+            getTemplate: getTemplate,
+            init: init,
+            show: show,
+            insert: insert
+        };
     };
 
     /**
      * The button HTML to use.
-     * @return {[type]} [description]
+     * @return {String}
      */
-    plugins.redimage.buttonHtml = function () {
+    function buttonHtml () {
         return '<i class="fa fa-photo"></i>';
     };
 
@@ -26,7 +30,7 @@
      *
      * @return {String}
      */
-    plugins.redimage.getTemplate = function () {
+    function getTemplate () {
         return String() +
             '<section id="redactor-modal-redimage-insert">' +
                 '<label>Link to Image</label>' +
@@ -39,7 +43,7 @@
     /**
      * Initialises the plugin, adding its image to the Redactor toolbar.
      */
-    plugins.redimage.init = function () {
+    function init () {
         var $button = this.button.add('redimage-btn', 'Link Image');
         $button.html(plugins.redimage.buttonHtml());
 
@@ -49,7 +53,7 @@
     /**
      * Displays the modal popup.
      */
-    plugins.redimage.show = function () {
+    function show () {
         // Create a new modal template and load the popup
         this.modal.addTemplate('redimage', this.redimage.getTemplate());
         this.modal.load('redimage', 'Insert Image', 500);
@@ -69,7 +73,7 @@
     /**
      * Inserts an image into the Redactor document.
      */
-    plugins.redimage.insert = function () {
+    function insert () {
         var link = escape($('#redactor-redimage-link').val());
         var title = escape($('#redactor-redimage-title').val());
 
