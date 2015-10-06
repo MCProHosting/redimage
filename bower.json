@@ -1,7 +1,7 @@
 {
   "name": "redimage",
   "main": "redimage.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/MCProHosting/redimage",
   "authors": [
     "Connor Peet <connor@connorpeet.com>"
