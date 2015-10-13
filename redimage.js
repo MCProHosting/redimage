@@ -3,7 +3,7 @@
     var plugins = this.RedactorPlugins = this.RedactorPlugins || {};
 
     /**
-     * Redimage plugin. 
+     * Redimage plugin.
      *
      * @return {Object}
      */
@@ -63,7 +63,7 @@
 
         // Add a button to finish and insert the image.
         var button = this.modal.createActionButton(this.lang.get('insert'));
-        button.on('click', plugins.redimage.insert);
+        button.on('click', this.redimage.insert);
 
         // Show the popup.
         this.selection.save();
